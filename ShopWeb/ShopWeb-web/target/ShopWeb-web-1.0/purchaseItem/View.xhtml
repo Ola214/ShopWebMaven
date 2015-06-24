@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPurchaseItemTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPurchaseItemLabel_id}"/>
+                    <h:outputText value="#{purchaseItemController.selected.id}" title="#{bundle.ViewPurchaseItemTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewPurchaseItemLabel_quantity}"/>
+                    <h:outputText value="#{purchaseItemController.selected.quantity}" title="#{bundle.ViewPurchaseItemTitle_quantity}"/>
+                    <h:outputText value="#{bundle.ViewPurchaseItemLabel_idProduct}"/>
+                    <h:outputText value="#{purchaseItemController.selected.idProduct}" title="#{bundle.ViewPurchaseItemTitle_idProduct}"/>
+                    <h:outputText value="#{bundle.ViewPurchaseItemLabel_idPurchase}"/>
+                    <h:outputText value="#{purchaseItemController.selected.idPurchase}" title="#{bundle.ViewPurchaseItemTitle_idPurchase}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{purchaseItemController.destroyAndView}" value="#{bundle.ViewPurchaseItemDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPurchaseItemEditLink}"/>
+                <br />
+                <h:commandLink action="#{purchaseItemController.prepareCreate}" value="#{bundle.ViewPurchaseItemCreateLink}" />
+                <br />
+                <h:commandLink action="#{purchaseItemController.prepareList}" value="#{bundle.ViewPurchaseItemShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPurchaseItemIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
